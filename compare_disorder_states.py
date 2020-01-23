@@ -59,7 +59,7 @@ H = hamiltonian(N,J,0)
 Eo,Vo = diagonalize_hamiltonian(H)
 
 alpha = np.zeros((N,len(sigma_vec)))
-dos = np.zeros((N*Nitt,len(sigma_vec)))
+dos = np.zeros((N,len(sigma_vec)))
 # For each of the disorder hamiltonians compare band_edge state with reference
 for ns in range(len(sigma_vec)):
     for itt in range(Nitt):
@@ -70,7 +70,7 @@ for ns in range(len(sigma_vec)):
         alpha[:,ns] = alpha[:,ns] + np.square(np.dot(np.transpose(Vo),V[:,0]))/Nitt
 
         # Density of states
-        dos[:,ns] =
+        dos[:,ns] = dos[:,ns] + E/Nitt
 
 import matplotlib.animation as animation
 
